@@ -1,10 +1,8 @@
-print("hihi")
-print("*" * 10)
+def greet(first_name, last_name=1):
+    print(f"{first_name}, {last_name}")
+    print("hihi")
+    print("hihihihihi")
 
-print("hihi")
 
-
-2 + 2
-
-x = 1
-y = 1
+# greet("a", "b")
+greet("a")

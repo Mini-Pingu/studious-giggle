@@ -57,3 +57,92 @@
 #### 重點
 
 1. 爲了方便，創建合適的 Code snippets
+
+## Primitive Types
+
+### 2021-02-28
+
+#### 筆記
+
+1. 命名需要有意義，長不要緊。
+
+#### 重點
+
+1. `python` 用 `_` 來命名
+
+2. String 合一起用 `f""`
+
+   ```python
+   first = "a"
+   last = "b"
+   full = f"{first} {last}" # 比 full = first + " " + last
+   ```
+
+3. 熟悉 String 的各種 method
+
+4. `10 // 3 -> 3` 不同與 `10 / 3 -> 3.3333`
+
+## Control Flow
+
+### 2021-02-28
+
+#### 筆記
+
+1. 雖然 `python` 的 `if` statement 是短路機制，不過對比下來，對運行時間上的影響不大。 
+
+#### 重點
+
+1. 極簡判斷 if - else
+
+   ```python
+   age = 2
+   message = "hihihi" if age > 19 else "ijijiji"
+   print(message) # ijijiji
+   ```
+
+2. `if` 中的 `and` `or` `not` 是爲了判斷 `True` 和 `False` 的值
+
+3. 以下語法是正確的
+
+   ```python
+   if 18 <= age < 65:
+   	print("hihi")
+   ```
+
+4. 所有 `range()` 的 `index` 都必須是從 0 開始，不能改變
+
+5. ***`For - else` => 這個很重要***
+
+   ```python
+   successful = True
+   
+   for number in range(10):
+       print("running @ ", number)
+       if successful:
+           print("successful")
+           break
+   else:
+       print("failed after running 10 times")
+   ```
+
+6. 全部用 `f"{var}"` 方式來 `print`
+
+## Functions
+
+### 2021-02-28
+
+#### 筆記
+
+1. 創建 `def`
+
+   ```python
+   def func():
+       print("func")
+       
+   
+   func() # 打印出 func
+   ```
+
+   
+
+#### 重點
