@@ -129,7 +129,7 @@
 
 ## Functions
 
-### 2021-02-28
+### 2021-03-02
 
 #### 筆記
 
@@ -143,6 +143,54 @@
    func() # 打印出 func
    ```
 
-   
 
 #### 重點
+
+1. 最好是直接 `return` ，而不是 `print`
+
+   ```python
+   def greet(name):
+   	print(f"{name}")
+   	
+   def get_greet(name)
+   	return f"{name}" # 這種更好
+   ```
+
+2. 寫 `function` 的良好習慣
+
+   ```python
+   def increment(number, by):
+   	return number + by
+   	
+   print(increment(number=2, by=1)) # 要在每個 function 的 args 前加上名稱
+   
+   #=========
+   
+   def increment2(number2, by2 = 1): # by2 = 1 預設值
+       return number + by
+   
+   print(increment2(3))
+   ```
+
+3. 如果不確定 `args` 的個數（屬性是 `list`），要加星
+
+   ```python
+   def multiply(*numbers):
+   	print(numbers)
+   	
+   multiply(1, 2, 3) # print => (1, 2, 3) tuple
+   ```
+
+4. 如果 `args` 是 dictionary，要加雙星
+
+   ```python
+   def multiply(**user):
+   	print(user)
+   	print(user["name"])
+   	
+   multiply(id=1, name="chris", age=22)
+   ```
+
+5. 不可以直接在 `function` 裏直接使用 `global variable`
+
+6. ***使用 VS Code 的 Debugger: `lanuch.json` 來 debug***
