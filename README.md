@@ -194,3 +194,64 @@
 5. 不可以直接在 `function` 裏直接使用 `global variable`
 
 6. ***使用 VS Code 的 Debugger: `lanuch.json` 來 debug***
+
+## Data Structures
+
+### 2021-03-05
+
+#### 筆記
+
+1. `list` 裏放什麼都行，不同數據類型一起放也行
+
+#### 重點
+
+1. 可以使用一下方法來創建 `list`:
+
+   ```python
+   zeros = [0] * 100
+   print(zeros) # [0,0,0,....]
+   ```
+
+2. 也可以這樣子來創建 `list`:
+
+   ```python
+   numbers = list(range(20))
+   print(numbers)
+   # [0, 1, 2, 3, ... 20]
+   ```
+
+3. 可以用 `list()` 來 loop 字符串
+
+   ```python
+   chars = list("hello world")
+   print(chars)
+   # ["h", "e", ...]
+   ```
+
+4. 可以用 `[::step number]` 來跳數
+
+   ```python
+   chars = list("Hello world")
+   print(chars[::2])
+   ```
+
+5. 可以用 `[::-1]` 來倒數
+
+   ```python
+   chars = list("Hello world")
+   print(chars[::-1])
+   ```
+
+6. 可以用以下方式來取數
+
+   ```python
+   chars = list("Hello world")
+   first, second, *other, last = chars
+   print(first)
+   print(second)
+   print(other)
+   print(last)
+   ```
+
+   
+
