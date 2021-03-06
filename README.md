@@ -197,11 +197,12 @@
 
 ## Data Structures
 
-### 2021-03-05
+### 2021-03-05 && 06
 
 #### 筆記
 
 1. `list` 裏放什麼都行，不同數據類型一起放也行
+2. 使用 `enumerate()`  可以獲取元素和序號
 
 #### 重點
 
@@ -253,5 +254,84 @@
    print(last)
    ```
 
-   
+7. 刪除元素
 
+   ```python
+   letters = ["a", "b", "c"]
+   
+   # 幾種刪除 list 元素的方法
+   letters.pop(0)
+   letters.remove("b")
+   del letters[0:3]
+   letters.clear()
+   ```
+
+8. 元素排序
+
+   ```python
+   tuple_listing = [
+       ("a", 1),
+       ("b", 3),
+       ("c", 2)
+   ]
+   
+   tuple_listing.sort(key=lambda item: item[1])
+   print(tuple_listing)
+   # [('a', 1), ('c', 2), ('b', 3)]
+   
+   number_list = list(map(lambda item: item[1], tuple_listing))
+   print(number_list)
+   # [1, 3, 2]
+   # 要知道 lambda 的用法
+   ```
+
+9. 元素過濾
+
+   ```python
+   tuple_listing = [
+       ("a", 1),
+       ("b", 3),
+       ("c", 2),
+       ("d", 20)
+   ]
+   
+   filtered = list(filter(lambda item: item[1] >= 10, tuple_listing))
+   print(filtered)
+   ```
+
+10. ***要活用 `map()` 和 `filter()` 函數，類似 javascript。會大大提升代碼可讀性。***
+
+11. python3 特有的更加直觀方法
+
+    ```python
+    number_list = list(map(lambda item: item[1], tuple_listing))
+    number_list = [item[1] for item in items]
+    print(number_list)
+    
+    filtered = list(filter(lambda item: item[1] >= 10, tuple_listing))
+    filtered = [item for item in items if item[1] >= 10]
+    print(filtered)
+    ```
+
+12. `zip()` 可以將兩個 `list` 合在一起。
+
+13. 要好好學學  python3  的`collections` 模塊用法
+
+14. ***`0`, `null` ,`[]` 都系 falsy 值，所以可以用 `not` 來處理，譬如***
+
+    ```python
+    if not 0: # if ture
+    if not null: # if ture
+    if not []: # if ture
+    ```
+
+15. 交換數值
+
+    ```python
+    x = 10
+    y = 11
+    x, y = y, x
+    print(x, y) # 11, 10
+    ```
+
+    
