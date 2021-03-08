@@ -369,3 +369,11 @@
 20. 用 `{}` 來裝的東西，如果只有 單個值的話，就是 `set` ；如果是 `key-value pair` 的話，就是 `dict`
 
 21. 可以使用 `*list` 來 unpack `list` 裏的內容，也可以使用 `**dict` 來 unpack  `dictionary` 裏的內容。
+
+## Exceptions
+
+### 2021-03-08
+
+#### 筆記
+
+#### 重點
