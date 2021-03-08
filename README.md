@@ -20,6 +20,8 @@
    2. Django
    3. CUDA programming
    4. Unit Testing
+   5. 裝飾器
+   6. Generator
 
 5. 要求
 
@@ -28,6 +30,7 @@
 6. 庫
 
    1. Anaconda
+   2. pprint
 
 7. 目的
 
@@ -197,7 +200,7 @@
 
 ## Data Structures
 
-### 2021-03-05 && 06
+### 2021-03-05 && 06 && 08
 
 #### 筆記
 
@@ -334,4 +337,35 @@
     print(x, y) # 11, 10
     ```
 
-    
+16. ***使用 `array` 庫來限定 `python` 的 `array` 類型或者其他屬性，可以縮小程序運行時間。***
+
+    ***要睇 `array` 庫的用法！！！！***
+
+17. `set` 可以用來除去重復的項，不同 `set` 之間有不同的組合用法
+
+    ***要睇 `set` 庫的用法！！！！***
+
+18. `dict()` 的用法
+
+    ```python
+    point = dict(x=1, y=2)
+    point["x"] = 10
+    point["z"] = 20
+    print(point.get("a", 0)) # 獲取 key 爲 a 的值，如果沒有就返回 0
+    del point["x"] # 去除 key 爲 x 的 key-value pair
+    for key, value in point.items():
+        print(key, value)
+    ```
+
+19. 要多用 comprehensions
+
+    ```python
+    # [expression for item in items if item > 2 ]
+    values = [item * 2 for item in range(5) if item > 2]
+    print(values) # [6, 8]
+    # 也可以用 [], {} 來裝這些 for in if 產出的東西 
+    ```
+
+20. 用 `{}` 來裝的東西，如果只有 單個值的話，就是 `set` ；如果是 `key-value pair` 的話，就是 `dict`
+
+21. 可以使用 `*list` 來 unpack `list` 裏的內容，也可以使用 `**dict` 來 unpack  `dictionary` 裏的內容。
