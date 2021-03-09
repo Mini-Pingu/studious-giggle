@@ -31,6 +31,7 @@
 
    1. Anaconda
    2. pprint
+   3. timeit
 
 7. 目的
 
@@ -372,8 +373,87 @@
 
 ## Exceptions
 
-### 2021-03-08
+### 2021-03-08 && 09
 
 #### 筆記
+
+#### 重點
+
+1. 最重要的一點是：
+
+   exception 會拖慢效率，要考慮是否真的要 exception
+
+2. 常規流程
+
+   ```python
+   try:
+       age = int(input("Age: "))
+   except ValueError as error:
+       print("You entered the wrong type value.")
+       print(error)
+       print(type(error))
+   else:
+       print("當 try 和 except 都出錯的時候，就到這裏")
+   print("try except 完了之後，就會打印這個。")
+   ```
+
+3. 兩個重復 `print` 的 `except` 的格式
+
+   ```python
+   try:
+       age = int(input("Age: "))
+       x = 10 / age
+   except (ValueError, ZeroDivisionError):
+       print("You entered the wrong type value.")
+   else:
+       print("hihi")
+   ```
+
+4. 完成的格式
+
+   ```python
+   try:
+   	print("hihi")
+       # 當 try 中的某一行除了 error 的話
+       # 就會直接跳過剩下的 code
+       # 去到 except
+   except:
+       print("hihihi")
+   else:
+       print('hihihihih[]')
+   finally:
+       print("無論如何都會執行這行")
+   ```
+
+5. 可以同時 `with open`  兩個文件
+
+   ```python
+   with open("one.txt") as one_file, open("two.txt") as two_file:
+   	print(one_file)
+   	print(two_file)
+   ```
+
+6. 可以手動 `raise error`
+
+   ```python
+   def function(age):
+   	if age <= 0:
+   		raise ValueError("hihihi")
+   	return 10 / age
+   
+   try:
+       function(-1)
+   except ValueError as error:
+       print(error)
+   ```
+
+## Classes
+
+### 2021-03-09
+
+#### 筆記
+
+1. Class: Blueprint for creating new objects
+2. Object: instance of a class
 
 #### 重點
