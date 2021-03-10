@@ -449,7 +449,7 @@
 
 ## Classes
 
-### 2021-03-09
+### 2021-03-09 && 10
 
 #### 筆記
 
@@ -457,3 +457,6 @@
 2. Object: instance of a class
 
 #### 重點
+
+1. 這片文章對 `class` 的用法有很詳細的講解：[A Guide to Python's Magic Methods](https://rszalski.github.io/magicmethods/)
+2. `class` 就好似將 `list`, `dictionary`, `set` 這類的最基礎的數據結構再做一次封裝。
