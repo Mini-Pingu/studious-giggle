@@ -24,10 +24,11 @@ cloud.add("python")
 cloud.add("python")
 cloud.add("python")
 cloud.add("python")
-print(cloud.__tags)
+# print(cloud.__tags)
 cloud["python3"] = 10
 cloud["python3"] = 20
 
 print(cloud["p1ython"])
 print(cloud["python3"])
+print(cloud.__dict__)
 # print(cloud.__tags["PYTHON"])
