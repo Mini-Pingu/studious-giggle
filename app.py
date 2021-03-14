@@ -1,4 +1,4 @@
-from pathlib import Path
+import requests
 
-path = Path()
-print(path)
+response = requests.get("http://google.com")
+print(response)
