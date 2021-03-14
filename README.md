@@ -449,14 +449,228 @@
 
 ## Classes
 
-### 2021-03-09 && 10
+### 2021-03-14 (一次過學完)
 
 #### 筆記
 
-1. Class: Blueprint for creating new objects
-2. Object: instance of a class
+1. Class: Blueprint for creating new objects => Human
+
+2. Object: instance of a class => John
+
+3. Class 命名規則：MyPoint
+
+4. Class 自身的內部使用的變量需要 `constructors` 來創建
+
+5. ***Properties 這一節，有些不懂***
+
+6. 繼承
+
+   ```python
+   class Animal:
+       def __init__(self):
+           self.age = 1
+   
+       def eat(self):
+           return "eat"
+   
+   
+   class Mammal(Animal):
+       def walk(self):
+           return "walk"
+   
+   
+   m = Mammal()
+   print(m.age)
+   print(m.walk())
+   print(m.eat())
+   ```
+
+   
 
 #### 重點
 
 1. 這片文章對 `class` 的用法有很詳細的講解：[A Guide to Python's Magic Methods](https://rszalski.github.io/magicmethods/)
+
 2. `class` 就好似將 `list`, `dictionary`, `set` 這類的最基礎的數據結構再做一次封裝。
+
+3. 可以使用 `isinstance()` 來判斷某個 `object` 是否由 某個 `class` 來創建的：
+
+   ```python
+   point = Point()
+   pring(type(poing))
+   print(isintance(point, Poing)) # True
+   ```
+
+4. 使用 `constructor` 可以用來接受 傳給 `class` 的變量，並在 `class` 內部使用
+
+   ```python
+   class Point:
+       def __init__(self, x, y):
+           self.x = x
+           self.y = y
+   
+       def draw(self):
+           # print(f"Point ({self.x}, {self.y})")
+           # return "draw"
+           return f"Point ({self.x}, {self.y})"
+   
+   
+   point = Point(1, 2)
+   print(point.x)
+   print(point.y)
+   print(point.draw())
+   
+   ```
+
+5. `class` 的通用 `variable` 可以被全部的 `instance` 使用
+
+   ```python
+   class Point:
+       class_variable = 10
+       def __init__(self, x, y):
+           self.x = x
+           self.y = y
+           
+   point_a = Point(1, 2)
+   point_b = Poing(2, 3)
+   print(point_a.class_variable) # 10
+   print(point_b.class_variable) # 10
+   print(Point.class_variable) # 10
+   
+   Point.class_variable = 20
+   # 這個 Point Class 的 class variable 可以被修改
+   # 這個是比較危險的
+   ```
+
+6. 當需要創建比較復雜的 `instance` 的時候，可以用以下方式來優雅地創建
+
+   ```python
+   class Point:
+   	def __init_-(self, x, y):
+           self.x = x
+           self.y = y
+           
+       @classmethod
+       def zero(cls):
+           return cls(0, 0)
+       
+   point = Point.zero() # = point = Poing(0, 0)
+   ```
+
+7. Class 的 Magic Method 就是一些 Class 初始化就會附帶的 method，如果不用的話，就會浪費了。媽的。用起來。比較兩個 `instance` 是否一樣，要用 `__eq__` 來做。不然只是直接比較兩個 `instance` 的 `reference` 地址，會肯定不一樣。
+
+   ```python
+   class Point:
+       def __init__(self, x, y):
+           self.x = x
+           self.y = y
+           
+       def __eq__(self, other):
+           return self.x == other.x and self.y == other.y
+   
+       
+   point_a = Point(1, 2)
+   point_b = Point(1, 2)
+   print(point_a == point_b) # True
+   # 如果沒有 __eq__ 的設定，就一定是 False，因爲只是比較兩個 instance 的 內存地址
+   # 這樣子就沒有意思了。
+   ```
+
+8. Magic Method 的意義就在於，可以將一些常用的 表達式，在 `Class` 裏特殊處理之後，就能更符合自身需要來使用。
+
+9. `Class` 通過 `Magin Method` 來正常和外界溝通，再通過 `method` 來和 `list`, `set`, `dict` 自身的性質來進行數據處理和存儲。只要在任意變量前加上 `__` 就不可以被外界直接訪問了。
+
+   一個例子：
+
+   ```python
+   class TagCloud:
+       __default = "red"
+   
+       def __init__(self):
+           self.__tags = {}
+   
+       def add(self, tag):
+           self.__tags[tag.lower()] = self.__tags.get(tag.lower(), 0) + 1
+   
+       def __getitem__(self, tag):
+           return self.__tags.get(tag.lower(), 0)
+   
+       def __setitem__(self, tag, count):
+           self.__tags[tag.lower()] = count
+   
+       def __len__(self):
+           return len(self.__tags)
+   
+       def __iter__(self):
+           return iter(self.__tags)
+   
+   
+   cloud = TagCloud()
+   print(TagCloud.default)
+   print(cloud["python"])
+   cloud.add("Python")
+   cloud.add("python")
+   cloud.add("c")
+   cloud.add("python")
+   cloud["python"] = 10
+   cloud.add("Python")
+   print(cloud["python"])
+   print(cloud["python"])
+   
+   for tag in cloud:
+       print(tag)
+   ```
+
+10. 當 subclass 有自己的 `constructor` ，就要用 `super().__init__() ` 才能在 subclass 裏使用 parent 的 `constructor`, 不然的話，subclass 的 `constructor` 就會直接整個覆蓋了 parent 的  `constructor`
+
+    ```python
+    class Animal:
+        def __init__(self):
+            self.age = 1
+    
+        def eat(self):
+            return "eat"
+    
+    
+    class Mammal(Animal):
+        def __init__(self):
+            super().__init__()
+            self.weight = 2
+    
+        def walk(self):
+            return "walk"
+    
+    
+    m = Mammal()
+    print(m.age)
+    print(m.walk())
+    print(m.eat())
+    print(m.weight)
+    print(m.age)
+    ```
+
+11. ***繼承關系的 class 最多就只有 2 層，不然會很容易出問題***
+
+12. 可以在一個 `class` 裏繼承兩個 `class`，可是當兩個 parent 有同樣命名的 function 時，執行的順序就會按照加載 `class` 的順序來進行
+
+    ```python
+    class A:
+        def greet(self):
+            return "A"
+    
+    
+    class B:
+        def greet(self):
+            return "B"
+    
+    
+    class C(B, A):
+        pass
+    
+    
+    c = C()
+    print(c.greet()) # "B"
+    
+    ```
+
+    
