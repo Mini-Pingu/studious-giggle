@@ -485,7 +485,7 @@
    print(m.eat())
    ```
 
-   
+7. 可以用 `abc` 庫來規範 `class` 的用法，具體還要再仔細看那個 庫 的用法
 
 #### 重點
 
@@ -673,4 +673,18 @@
     
     ```
 
-    
+13. `class` 可以繼承 基礎數據類型
+
+    ```python
+    class Text(str):
+        def duplicate(self):
+            return self + self
+    ```
+
+## Modules
+
+#### 2021-03-14
+
+#### 筆記
+
+#### 重點
