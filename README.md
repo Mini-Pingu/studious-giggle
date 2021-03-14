@@ -4,7 +4,7 @@
 
 1. 學習材料
 
-   Mosh 的兩個 Python 課程
+   Mosh 的兩個 Python 課程 （Python Develop 版只是 Django 更多一些，可以直接看 Developer 版的 Djangos）
 
 2. 原則
 
@@ -22,6 +22,8 @@
    4. Unit Testing
    5. 裝飾器
    6. Generator
+   7. 看 python 官方文檔
+   8. class
 
 5. 要求
 
@@ -47,6 +49,10 @@
       3. code runner => `ctl` + `alt` + `n` 自動運行代碼（記得更改 code runner 的 ` "code-runner.executorMap": {"python" : "python3 -u"}`）
    2. `shift` + `ctrl` + `M` => 顯示 Problems 版面
    3. `shift` + `ctrl` + `P` => 顯示 control 選擇版面
+   
+10. 注意
+
+    1. Mosh 的課程太舊了，需要更新的地方有很多。。。
 
 ## Complete Python Mastery
 
@@ -684,6 +690,103 @@
 ## Modules
 
 #### 2021-03-14
+
+#### 筆記
+
+1. python 比 javascript 方便的地方在與，可以不用 export 就可以使用其他 modules 的 method。
+
+#### 重點
+
+1. 不要使用 `import * from modules`， 因爲會導致 `method override`。要用哪個才拿哪個。
+
+2. 也可以使用 `import modules`，再在剩下的內容中使用 `modules.method` 來使用該 `method`
+
+3.  可以引用其他文件夾裏的 `py` 文件
+
+   - 文件架構
+
+   ```bash
+   .
+   ├── app.py
+   └── ecommerce
+       ├── __init__.py
+       └── sales.py
+   ```
+
+   - 一定要加 `__init__.py` 在文件夾裏
+
+   - `app.py`
+
+     ```python
+     from ecommerce.sales import calc_tax, calc_shipping
+     from ecommerce import sales
+     
+     calc_shipping()
+     calc_tax()
+     ```
+
+   - `sales.py`
+
+     ```python
+     def calc_tax():
+         print("calc_tax")
+     
+     
+     def calc_shipping():
+         print("calc_shipping")
+         
+     ```
+
+4. 可以通過 `dir()` 來觀察不同 modules 的屬性
+
+5. 作爲`Module` 和單獨執行的區別
+
+   ```python
+   # 如果單獨執行的話， __name__ == "__main__"
+   if __name__ == "__main__":
+       main()
+       
+   # 如果是其他文件 import 的話，__name__ not == __main__，
+   # 而是 該 import 文件的路徑全稱
+   ```
+
+## Python Standard Library
+
+### 2021-03-14
+
+#### 筆記
+
+1. 提到的有用的庫
+   1. `pathlib`
+   2. `glob` 和 `rglob`
+   3. `shutil`
+   4. `zipfile`
+   5. `csv`
+   6. `json`
+   7. `sqlite3`
+   8. `time`
+   9. `datetime`
+   10. `random`
+   11. `string`
+   12. `smtp`
+   13. `sys`
+   14. `subprocess`
+
+#### 重點
+
+1. 任何需要對文件進行處理，最好用
+
+   ```python
+   with open("file") as file:
+   	# ...
+       
+   with sqlite3.connect("db") as conn:
+       # ...
+   ```
+
+## Python Package Index
+
+### 2021-03-14
 
 #### 筆記
 
