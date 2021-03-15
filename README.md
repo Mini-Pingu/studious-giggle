@@ -798,9 +798,46 @@
 2. 可用的庫
    1. `requests`
 3. 和 `node.js` 的 `npm` 差不多
+4. 可以發布自己的 `package` 到 `pypi`
 
 #### 重點
 
-1. 使用 anaconda，作爲分環境工具
+1. 使用 `anaconda`，作爲環境工具
+
 2. `pipenv` 就像 `npm` 
 
+3. 要對自己程序的每一個 `class` 和 `function` 都要 well-documented，不只是 `python` ，`javascript` 都系
+
+   ```python
+   class PDF2Text:
+       """
+      	this is a short summary about this class
+      	
+      	more details...
+       """
+       def pdf2text(self, path):
+           """
+           This is a short summary of this funtion
+           
+           more details...
+           
+           Parameters:
+           path (str): The path to a PDF file.
+           
+           Returns:
+           str: The content of the PDF file as text.
+           """
+           print("pdf2text")
+   ```
+
+4. 要爲自己的項目，怎樣都要加一個 [licence](https://choosealicense.com/)。
+
+5. 在項目根目錄下 執行 `pydoc3 -p [port]`，可以查看到該 項目下所有的 documentaion. 
+
+## Popular Python Packages
+
+### 2021-03-15
+
+#### 筆記
+
+#### 重點
