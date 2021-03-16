@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Movie
 
 
 def index(request):
-    return HttpResponse("hihi")
+    movies = Movie.objects.all()
+    return render(request, "index.html", {"movies": movies})
