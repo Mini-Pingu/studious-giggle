@@ -1,5 +1,5 @@
 {
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "/home/chris/.local/share/virtualenvs/python3-owvlm3q9/bin/python"
+    "python.pythonPath": "/home/chris/anaconda3/bin/python"
 }

@@ -836,9 +836,19 @@
 
 ## Popular Python Packages
 
-### 2021-03-15
+### 2021-03-15 && 16
 
 #### 筆記
+
+1. 爬蟲用 `scrapy`， 不要用 `bs4`
+
+2. `selenium` 做自動化
+
+3. 可以簡化 `import` 的 module
+
+   ```python
+   import numpy as np
+   ```
 
 #### 重點
 
@@ -847,3 +857,14 @@
    2. github
 2. 發送信息可以使用 twilio 服務
 3. 重要保密內容要分來，用 `.gitignore` 來避免上傳
+4. ***`assert` 用法***
+
+## Building Web Applications with Django（取第二部分 教程）
+
+### 2021-03-16
+
+#### 筆記
+
+1. sqlite 只適合移動小應用使用
+
+#### 重點
